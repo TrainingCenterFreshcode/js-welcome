@@ -1,44 +1,45 @@
-let box1 = 'Hello';
+// Перетворення (приведення) типу даних
 
-let box2; // undefined
+// Перетворення типу даних - коли значення змінює тип даних з одного на інший
+// Існує 2 типи перетворення даних: явне і неявне
 
-box2 = 15; // 15
+// Неявне перетворення типів (implicit type conversion)
+let num = 6 - '1';
+//console.log(num);
 
-let secretWord = 15;
-//console.log(secretWord);
+// Явне перетворення типів (explicit type conversion)
+// (приведення типів)
 
-secretWord = 'worddd';
+let thisIsNumber = Number('45'); // 45
 
-//console.log(box2); // Не виконається через помилку на рядку 10
-// ....
+// Boolean автоматично (неявно) приводиться до типу Number при арифметичних розрахунках
+// true -> 1
+// false -> 0
 
-let result1 = 1 + 2; // 3
-//console.log(result1);
-let result2 = 3 - 2; // 1
-//console.log(result2);
-let result3 = 2 * 2; // 4
-//console.log(result3);
-let result4 = 4 / 2; // 2
-//console.log(result4);
+let booleanNumber = true + 1; // 1 + 1 = 2
+//console.log(booleanNumber);
 
-let result5 = 0.1 + 0.2; // 0.3
-//console.log(result5);
+// String
 
-let notAllowed = 10 / 0;
-// console.log(notAllowed); // Infinity (Нескінченність)
+let thisIsString = String(45); // '45'
+//console.log(thisIsString);
 
-let brrrr = 10 / 'hello world';
-//console.log(brrrr); // NaN
-// NaN-Not a Number -->> операція, неприпустима з точки зору математики
+let testString = null + ''; // неявне приведення типу до string
+//console.log(testString);
 
-// "+"
-// складає числа
-// Зклеювати строки (конкатенація)
-let newLine = 'Hello' + 'world';
-//console.log(newLine);
+// Явне приведення типів краще за неявне
 
-newLine = 5 + 'hello';
-//console.log(newLine);
+let test = 15 - Number('17');
+//console.log(test);
 
-newLine = '1' + 1;
-console.log(newLine); // 11
+// NaN - Not-a-Number
+let notANumber = 2 * 'Hello'; // приведення типів неможливе -> некоректна математична операція -> NaN
+//console.log(notANumber);
+
+// () - оператор виклику функції
+// математичні оператори (+, -, *, /)
+// оператор конкатенації
+
+// оператор typeof - довзоляє отримати тип даних операнда
+let box = true;
+console.log(typeof box);
