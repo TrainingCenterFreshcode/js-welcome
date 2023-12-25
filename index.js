@@ -24,7 +24,29 @@ function greetingUser(userName) {
 
 // Використання функції
 // Параметри, які ви передаєте при виклику функції - фактичні параметри
-greetingUser('Alex'); // 'Alex' - аргумент функції, фактичний параметр
-greetingUser('John'); // 'John' - фактичний параметр
-greetingUser('Sam'); // 'Sam' - фактичний параметр
-greetingUser('Solar'); // 'Solar' - фактичний параметр
+//greetingUser('Alex'); // 'Alex' - аргумент функції, фактичний параметр
+//greetingUser('John'); // 'John' - фактичний параметр
+//greetingUser('Sam'); // 'Sam' - фактичний параметр
+//greetingUser('Solar'); // 'Solar' - фактичний параметр
+
+// Задача: Створіть функцію, яка приймає число, додає до нього 5 і виводить результат у консоль
+
+function addFiveToNumber(number) {
+    let result = Number(number) + 5;
+    //console.log(result);
+    return result;
+}
+
+const addFiveToNumberResult = addFiveToNumber(5);
+
+// Задача: Написати функцію, яка складає два числа і повертає результат розрахунку
+
+function addTwoNumbers(num1, num2) {
+    const result = num1 + num2;
+    return result;
+}
+
+const addTwoNumbersResult = addTwoNumbers(5, 5);
+
+                // 10                   10
+console.log(addFiveToNumberResult + addFiveToNumberResult); // 10+10=20
