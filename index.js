@@ -1,52 +1,79 @@
-// Функції (Functions)
-// Функція (підпрограмма) - блок коду, який виконує певні дії при виклику.
-// Функція може приймати аргументи - значення, які передаються у функцію. Функція може використовувати аргументи у своїй роботі.
-// Функція може повертати значення (а може і не повертати)
-// Функція - фрагмент програмного коду, до якого можна звернутись з іншого місця програми
+/*
 
-/* Синтаксис функції
+Об'явлена функція - Function Declaration
 
-Як оголосити функцію?
-
-function ім'я_функції(аргумент1, аргумент2) {
+function ім'я_функції(argument1, argument2) {
     тіло функції
 }
 
+ім'я_функції(аргумент1, аргумент2);
+
+
+hoisting - оголошення функції піднімається (hoisted) до верхньої частини коду
 */
 
-// Задача: написати функцію, яка буде приймати ім'я користувача:строка і буде вітатись із цим користувачем
+greetingUser('James');
 
 function greetingUser(userName) {
-    // userName - абстракція, на якій ми зав'язуємо логіку роботи функції
-    // userName - формальний параметр
     console.log('Hi, ' + userName);
 }
 
-// Використання функції
-// Параметри, які ви передаєте при виклику функції - фактичні параметри
-//greetingUser('Alex'); // 'Alex' - аргумент функції, фактичний параметр
-//greetingUser('John'); // 'John' - фактичний параметр
-//greetingUser('Sam'); // 'Sam' - фактичний параметр
-//greetingUser('Solar'); // 'Solar' - фактичний параметр
+greetingUser('Alex');
 
-// Задача: Створіть функцію, яка приймає число, додає до нього 5 і виводить результат у консоль
+/*
 
-function addFiveToNumber(number) {
-    let result = Number(number) + 5;
-    //console.log(result);
-    return result;
+Function Expression - Функціональний вираз
+
+const ім'я_функції = function(arg1, arg2) {
+    тіло функції
 }
 
-const addFiveToNumberResult = addFiveToNumber(5);
+ім'я_функції(аргумент1, аргумент2);
 
-// Задача: Написати функцію, яка складає два числа і повертає результат розрахунку
+hoisting не відбувається!
 
-function addTwoNumbers(num1, num2) {
-    const result = num1 + num2;
-    return result;
+*/
+
+// greet('Test'); Призведе до помилки!
+
+const greet = function(userName) {
+    console.log('Hi, ' + userName);
 }
 
-const addTwoNumbersResult = addTwoNumbers(5, 5);
+greet('Kevin');
 
-                // 10                   10
-console.log(addFiveToNumberResult + addFiveToNumberResult); // 10+10=20
+
+/* 
+
+Arrow Function - Стрілкова (Стрелочная) функція
+
+const ім'я_функції = (arg1, arg2) => {
+    тіло функції
+}
+
+ім'я_функції(аргумент1, аргумент2);
+
+hoisting не відбувається!
+
+*/
+
+// greetArrow('Test'); Призведе до помилки!
+
+const greetArrow = (userName) => {
+    console.log('Hi, ' + userName);
+}
+
+greetArrow('Stepan');
+
+// Задача: написати функцію, яка виводить системну дату та час (поточні)
+
+
+
+
+// ДЛЯ ТИХ, ХТО ХОЧЕ БІЛЬШЕ!
+const getDateWithTime = function() {
+    // круглі дужки - коли нам не потрібні параметри
+    // параметри нам не потрібні, коли робота функції не залежить від якогось зовнішнього значення
+    const dateWithTime = new Date();
+    return dateWithTime;
+}
