@@ -1,79 +1,44 @@
+//const value1 = Number(prompt('Введіть перше число: '));
+//const value2 = Number(prompt('Введіть друге число: '));
+
+// Задача 1. Написати функцію, яка прицмає два числа і повертає те число, що більше
+
+
+function getBigger(number1, number2) { // number1, number2 - формальні параметри
+    if(typeof number1 !== 'number' || typeof number2 !== 'number') {
+        console.log('Ми очікуємо числа!');
+    } else if(number1 > number2) {
+        return number1;
+    } else {
+        return number2;
+    }
+}
+
+console.log(getBigger(value1, value2)); // value1, value2 - фактичні параметри
+
+
+
+// Задача 2. Написати функцію, яка обчислює середнє арифметичне з двох чисел
+
 /*
-
-Об'явлена функція - Function Declaration
-
-function ім'я_функції(argument1, argument2) {
-    тіло функції
+function average(number1, number2) {
+    return (number1 + number2) / 2;
 }
 
-ім'я_функції(аргумент1, аргумент2);
-
-
-hoisting - оголошення функції піднімається (hoisted) до верхньої частини коду
+console.log(average(value1, value2));
 */
 
-greetingUser('James');
-
-function greetingUser(userName) {
-    console.log('Hi, ' + userName);
-}
-
-greetingUser('Alex');
+// Задача 3. Написати функцію, яка приймає число і визначає, чи є воно парним
 
 /*
-
-Function Expression - Функціональний вираз
-
-const ім'я_функції = function(arg1, arg2) {
-    тіло функції
+function isEven(number) {
+    if(number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-ім'я_функції(аргумент1, аргумент2);
-
-hoisting не відбувається!
+console.log(isEven(5));
 
 */
-
-// greet('Test'); Призведе до помилки!
-
-const greet = function(userName) {
-    console.log('Hi, ' + userName);
-}
-
-greet('Kevin');
-
-
-/* 
-
-Arrow Function - Стрілкова (Стрелочная) функція
-
-const ім'я_функції = (arg1, arg2) => {
-    тіло функції
-}
-
-ім'я_функції(аргумент1, аргумент2);
-
-hoisting не відбувається!
-
-*/
-
-// greetArrow('Test'); Призведе до помилки!
-
-const greetArrow = (userName) => {
-    console.log('Hi, ' + userName);
-}
-
-greetArrow('Stepan');
-
-// Задача: написати функцію, яка виводить системну дату та час (поточні)
-
-
-
-
-// ДЛЯ ТИХ, ХТО ХОЧЕ БІЛЬШЕ!
-const getDateWithTime = function() {
-    // круглі дужки - коли нам не потрібні параметри
-    // параметри нам не потрібні, коли робота функції не залежить від якогось зовнішнього значення
-    const dateWithTime = new Date();
-    return dateWithTime;
-}
