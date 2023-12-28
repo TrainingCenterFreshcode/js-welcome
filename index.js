@@ -1,44 +1,86 @@
 /*
 
-High Order Function (HOF, Функція вищого порядку) -
-функція, яка приймає іншу функцію в якості аргумента
+Розробити алгоритм, який буде відображати режим нашого дня
+
+Потрібно розробити функцію, яка приймає ту чи іншу пору дня (ранок, обід, вечір) і виконує ті чи інші дії, які ми виконуємо у вказану пору дня
 
 */
 
-function calculator(num1, num2, functionLink) { // HOF
-    let result = functionLink(num1, num2);
-    return result;
+function todo(timeOfDay) { // HOF
+    // morning - список справ на ранок
+    // lunch - список справ на обід
+    // evening - список справ на вечір
+
+    switch(timeOfDay) {
+        case 'morning': {
+            brushingTeth();
+            skincare();
+            breakfast();
+            break;
+        }
+        case 'lunch': {
+            goToOffice();
+            coding();
+            lunch();
+            coding();
+            break;
+        }
+        case 'evening': {
+            education();
+            coding();
+            goToHome();
+            shower();
+            brushingTeth();
+            skincare();
+            sleep();
+            break;
+        }
+        default: {
+            console.log('Помилка! Такої пори дня не передюачено!')
+        }
+    }
 }
-                        // num1     // num2     // functionLink
-console.log(calculator(5,           10,          sum)); // sum - посилання на функцію
 
-// Використовуючи калькулятор, піднесіть num1 у степінь num2
-console.log(calculator(3, 2, function (a, b) { // callback
-    return a**b;
-}));
+//todo('morning');
+//todo('lunch');
+todo('evening');
 
-function sum(a, b) { // Function Declaration
-    return a + b;
+function brushingTeth() {
+    console.log('brushing teeth');
 }
 
-function substract(a, b) {
-    return a - b;
+function skincare() {
+    console.log('skincare');
 }
 
-function multy(a, b) {
-    return a * b;
+function breakfast() {
+    console.log('breakfast');
 }
 
-function divide(a, b) {
-    return a / b;
+function goToOffice() {
+    console.log('goToOffice');
 }
 
-/*
+function coding() {
+    console.log('coding');
+}
 
-High Order Function (HOF, Функція вищого порядку) -
-функція, яка приймає іншу функцію в якості аргумента
+function lunch() {
+    console.log('lunch');
+}
 
-Callback - Колбек (функція зворотнього виклику), 
-- функція, ЯКУ ми передали як аргумент при виклиці іншої функції
+function education() {
+    console.log('education');
+}
 
-*/
+function goToHome() {
+    console.log('goToHome');
+}
+
+function shower() {
+    console.log('shower');
+}
+
+function sleep() {
+    console.log('sleep');
+}
