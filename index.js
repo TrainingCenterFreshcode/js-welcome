@@ -1,50 +1,29 @@
 /*
 
-Задача 1
+Задача 2
 
-Написати функцію, яка приймає 2 числа (діапазон) і виводить на консоль всі числа з цього діапазону, які діляться на 5
+Написати гру FizzBuzz для 100 чисел
+
+Починаємо з 1, потім це число поступово інкрементується.
++Якщо число ділиться на 3 - гравець каже Fizz
++Якщо число ділиться на 5 - гравець каже Buzz
++Якщо число ділиться одночасно і на 3 і на 5 - гравець каже FizzBuzz
++Якщо число ділиться ні на 3 ні на 5 - гравець просто називає це число
 
 */
 
-// v1
-
-// function printNumberDivisibleBy5(start, end) {
-//   for(let i = start; i <= end; i++) { // <= ("менше або дорівнює") 
-//     if(i % 5 === 0) {
-//       console.log(i);
-//     }
-//   }
-// }
-
-// printNumberDivisibleBy5(10, 50);
-/*
-10
-11
-12
-13
-14
-15
-16....
-50
-*/
-
-// v2 - variant maximum
-
-function count () {
-  let numberOne = Number(prompt('Введіть число один'));
-  let numberTwo = Number(prompt('Введіть число два'));
-  if(numberOne > numberTwo) {
-    console.log('Початкове число повинно бути менше за кінцеве число');
-    return; // дострокове завершення функції
-  }
-
-  for (let it = numberOne; it <= numberTwo; it++) {
-      if (it % 5 === 0) {
-          console.log(it);
-      } else {
-          console.log('Число ' + it + ' не кратне 5');
-      }   
+function fizzBuzzGame(limit) {
+  for(let i = 1; i <= limit; i++) {
+    if(i % 3 === 0 && i % 5 === 0) { // Якщо число ділиться одночасно і на 3 і на 5
+      console.log('FizzBuzz');
+    } else if(i % 3 === 0) {
+      console.log('Fizz');
+    } else if(i % 5 === 0) {
+      console.log('Buzz');
+    } else {
+      console.log(i);
+    }
   }
 }
 
-count();
+fizzBuzzGame(100);
