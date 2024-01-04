@@ -10,37 +10,28 @@ const cat3 = new Object(); // Функція-конструктор з опер�
 
 */
 
-const cat = {
-  name: 'Murzik',
-  color: 'Red',
-  breed: 'Dvorovyi',
-  age: 2,
-  eat: function() {
-    return 'I am eating'
-  },
-  sleep: function() {
-    return 'I am sleeping'
+// Конструктор визначає шаблон або "скелет" об'єктів, які будуть створюватися
+
+/* Угоди у функціях конструкторах:
+
+1. Ім'я функції-конструктора має починатися з великої літери
+2. Функція-конструктор повинна виконуватись лише за допомогою оператора new
+
+*/
+
+// Задача: напистаи функцію-конструктор для створення кота
+
+function Cat(name, color, breed, age) {
+  this.name = name; // this - посилання на ось цього новоствореного кота
+  this.color = color;
+  this.breed = breed;
+  this.age = age;
+  this.run = function() {
+    return this.name + ' is running';
   }
 }
 
-console.log(cat.age); // 2
+// Задача: створити декілька (двох) котів, за допомогою нашої функції-конструктора
 
-cat.age = cat.age + 1;
-
-console.log(cat.age); // 3
-
-cat.sleep = undefined; // Bad practice
-
-delete cat.sleep; // Good practice
-
-// Adding properties
-
-// Задача: додати ім'я друга Мурзика до об'єкту Мурзика
-
-cat.friend = 'Tuzik';
-
-cat['favorite food'] = 'fish';
-
-cat.meow = function() {
-  return 'Meow'
-}
+const cat1 = new Cat('Bublik', 'white', 'Dvorovyi', 3);
+const cat2 = new Cat('Murzik', 'black', 'siam', 4);
