@@ -1,37 +1,20 @@
-/* Способи створення об'єкта
+/*
+Створіть функцію-конструктор собаки, в якого має бути ім'я, колір, вік
 
-const cat = { // літеральне створення об'єкта
-
-}
-
-const cat2 = Object(); // Функція-конструктор
-
-const cat3 = new Object(); // Функція-конструктор з оператором new
-
+Зробіть декілька собак
 */
 
-// Конструктор визначає шаблон або "скелет" об'єктів, які будуть створюватися
-
-/* Угоди у функціях конструкторах:
-
-1. Ім'я функції-конструктора має починатися з великої літери
-2. Функція-конструктор повинна виконуватись лише за допомогою оператора new
-
-*/
-
-// Задача: напистаи функцію-конструктор для створення кота
-
-function Cat(name, color, breed, age) {
-  this.name = name; // this - посилання на ось цього новоствореного кота
+function Dog(name, color, age) {
+  this.name = name;
   this.color = color;
-  this.breed = breed;
   this.age = age;
-  this.run = function() {
-    return this.name + ' is running';
+  this.gav = function() {
+    return this.name + ' gav-gav-gav';
   }
 }
 
-// Задача: створити декілька (двох) котів, за допомогою нашої функції-конструктора
+const dog1 = new Dog('Tuzik', 'black', 1);
 
-const cat1 = new Cat('Bublik', 'white', 'Dvorovyi', 3);
-const cat2 = new Cat('Murzik', 'black', 'siam', 4);
+const dog2 = new Dog('Knopa', 'white', 3);
+
+const dog3 = new Dog('Liem', 'black', 3);
