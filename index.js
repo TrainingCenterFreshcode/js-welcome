@@ -1,47 +1,51 @@
+// Задача:
 /*
-
-Задача 2
-
-Зробити функцію-конструктор Авто, яке має:
-- назву
-- максимальну швидкість
-- поточну швидкість
-Спроектувати методи:
-- метод прискорення (accelearte) - приймає в якості аргумента певне прискорення
-Зауважте, що при прискоренні, поточна швидкісь не може бути більшою за максимальну швидкість
-- метод сповільнення (deaccelerate) - приймає в якості аргумента певне сповільнення
-Зауважте, що при сповільненні, поточна швидкість не може бути менше за 0
-- метод зупинки (stop)
-
+Всередині алерту виконати математичний розрахунок: 2+2=4
 */
 
-function Auto(name, maxSpeed) {
-  this.name = name;
-  this.maxSpeed = maxSpeed;
-  this.speed = 0;
+//alert('2+2=' + (2+2));
 
-  this.accelerate = function(accelValue) {
-    this.speed = this.speed + accelValue;
-    if(this.speed > this.maxSpeed) {
-      this.speed = this.maxSpeed;
-    }
+// Подвійні лапки: "Привіт"
+// Одинарні лапки: 'Привіт'
 
-    return this.speed;
-  }
+// Зворотні лапки: `Привіт` -->> шаблонний рядок
+// Вирази укладаються ${...вираз...}
 
-  this.deaccelerate = function(deaccelValue) {
-    this.speed = this.speed - deaccelValue;
-    if(this.speed < 0) {
-      this.speed = 0;
-    }
+// Рядки, які знаходяться у зворотніх лапках називаються шаблонними рядками
 
-    return this.speed;
-  }
+const nickname = 'Вася';
 
-  this.stop = function() {
-    this.speed = 0;
-    return this.speed;
-  }
+// Задача: створити alert і привітатись з Васею
+//alert('Привіт, ' + nickname + '!');
+// alert(`Привіт, ${nickname}!`); // `` -->> шаблонний рядок
+
+//alert(`результат: ${1 + 2}`);
+
+// Задача: запитати у користувача 2 числа і вивести відповідь алертом
+
+const first = Number(prompt('Enter first number:'));
+const second = Number(prompt('Enter second number:'));
+
+//alert(String(first) + '+' + String(second) + '=' + String(first + second));
+// 5+10=15
+
+alert(`${first} + ${second} = ${first + second}`);
+
+// Практика
+
+// У нас є функція
+function greetingUser(user) {
+  // ? <<<--- шаблонний рядок
 }
 
-const auto1 = new Auto('Audi', 300);
+// та у нас є об'єкт
+const user = {
+  name: 'John',
+  surname: 'Doe',
+  age: 19
+}
+
+// Написати функцію greetingUser таким чином, щоб вона вітала користувача та вказала, скільки йому років має виповнитись у наступному році
+
+// Приклад виклику функції:
+greetingUser(user); // Hey John Doe. You will be 20 next year
