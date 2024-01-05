@@ -1,30 +1,5 @@
 /*
 
-Задача 1
-
-Зробити функцію-конструктор Country, яка приймає в якості аргументів:
-- назва країни
-- популяція (population)
-- площа (area)
-Спроектувати метод густоти населення
-P.S. Густота наеселення = популяція цієї країни / площу цієї ж країни
-
-*/
-
-function Country(name, population, area) {
-  this.name = name;
-  this.population = population;
-  this.area = area;
-
-  this.getDensity = function() {
-    return this.population / this.area;
-  }
-}
-
-const UK = new Country('United Kingdom', 67333000, 243610);
-
-/*
-
 Задача 2
 
 Зробити функцію-конструктор Авто, яке має:
@@ -39,3 +14,34 @@ const UK = new Country('United Kingdom', 67333000, 243610);
 - метод зупинки (stop)
 
 */
+
+function Auto(name, maxSpeed) {
+  this.name = name;
+  this.maxSpeed = maxSpeed;
+  this.speed = 0;
+
+  this.accelerate = function(accelValue) {
+    this.speed = this.speed + accelValue;
+    if(this.speed > this.maxSpeed) {
+      this.speed = this.maxSpeed;
+    }
+
+    return this.speed;
+  }
+
+  this.deaccelerate = function(deaccelValue) {
+    this.speed = this.speed - deaccelValue;
+    if(this.speed < 0) {
+      this.speed = 0;
+    }
+
+    return this.speed;
+  }
+
+  this.stop = function() {
+    this.speed = 0;
+    return this.speed;
+  }
+}
+
+const auto1 = new Auto('Audi', 300);
