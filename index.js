@@ -1,41 +1,8 @@
-// Задача:
-/*
-Всередині алерту виконати математичний розрахунок: 2+2=4
-*/
-
-//alert('2+2=' + (2+2));
-
-// Подвійні лапки: "Привіт"
-// Одинарні лапки: 'Привіт'
-
-// Зворотні лапки: `Привіт` -->> шаблонний рядок
-// Вирази укладаються ${...вираз...}
-
-// Рядки, які знаходяться у зворотніх лапках називаються шаблонними рядками
-
-const nickname = 'Вася';
-
-// Задача: створити alert і привітатись з Васею
-//alert('Привіт, ' + nickname + '!');
-// alert(`Привіт, ${nickname}!`); // `` -->> шаблонний рядок
-
-//alert(`результат: ${1 + 2}`);
-
-// Задача: запитати у користувача 2 числа і вивести відповідь алертом
-
-const first = Number(prompt('Enter first number:'));
-const second = Number(prompt('Enter second number:'));
-
-//alert(String(first) + '+' + String(second) + '=' + String(first + second));
-// 5+10=15
-
-alert(`${first} + ${second} = ${first + second}`);
-
 // Практика
 
 // У нас є функція
 function greetingUser(user) {
-  // ? <<<--- шаблонний рядок
+  return `Hey ${user.name} ${user.surname}. You will be ${user.age + 1} next year`;
 }
 
 // та у нас є об'єкт
