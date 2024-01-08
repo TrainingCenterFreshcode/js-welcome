@@ -1,16 +1,28 @@
-// Практика
-
-// У нас є функція
-function greetingUser(user) {
-  user.age = 50;
-  return `Hey ${user.name} ${user.surname}. You will be ${user.age + 1} next year`;
-}
-
-// та у нас є об'єкт
 const user = {
-  name: 'John',
-  surname: 'Doe',
-  age: 19
+  'name': 'John', // Ключ - 'name', значення - 'John'
+  'favorite color': 'red',
+  0: 'value'
 }
 
-// Написати функцію greetingUser таким чином, щоб вона вітала користувача та вказала, скільки йому років має виповнитись у наступному році
+// Ключем в об'єкті може бути рядок або тип даних Symbol
+
+// . - оператор доступу за ім'ям властивості (коли мова йде про валідні ідентифікатори)
+
+console.log(user.name); // John
+// user.'favorite color'; -->> syntax error
+// user.0; -->> syntax error
+
+// [] - оператор доступу до обчислювальної властивості (коли мова йде про невалідні ідентифікатори)
+console.log(user['favorite color']); // red
+
+console.log(user[0]); // value
+
+
+const someObj = {
+  2: 10
+}
+
+// Задача: отримати значення, яке знаходиться під ключем 2
+
+console.log(someObj[2]);
+console.log(someObj['2']);
