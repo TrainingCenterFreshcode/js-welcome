@@ -1,36 +1,43 @@
-/* Задача 2
+// array.concat - використовується для об'єднання двох або більше масивів у новий масив
+// array.concat(array1, array2, ..., arrayN)
 
-Дано масив [3, 6, 8, 2, 3, 5, 1].
-Написати функцію, яка знаходить найбільше значення серед елементів масиву.
-
-1. Десь запам'ятати найбільше число, яке ми зустріли
-2. Порівняти його з наступним елементом масиву.
-Якщо елемент масиву опииться більшим ніж те число, яке ми запам'ятали, то саме цей елемент масиву стає найбільшим запам'ятовуваним
+const array1 = [1, 2, 3, 4];
+const array2 = array1.concat([222, 888, 333], [555555, 7777777]);
+// console.log(array2);
 
 
-const numMaximum = 5;
-const currentNum = 4;
+// array.fill - використовується для заповнення всіх елементів масиву якимсь одним значенням
+// array.fill(value, [start, [end]]); // start, end - не обов'язкові
 
-if(numMaximum > currentNum) {
-  // ідемо далі
-} else {
-  numMaximum = currentNum;
-}
+const array3 = new Array(5);
+array3.fill(1);
 
-*/
 
-const numbersArray = [3, 6, 8, 2, 3, 5, 1];
+// array.includes - використовується для перевірки наявності певного значення у масиві
+// array.includes(searchValue, [fromIndex])
 
-function maxArray(array) {
-  let maxNumber = array[0];
+const array4 = [2, 12, 1, 5, 8, 13, 12];
+// console.log(array4.includes(120));
 
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > maxNumber) { // якщо поточний просматреваемій елемент масиву більше, ніж максимальне число, яке ми запам'ятали
-      maxNumber = array[i]
-    }
-  }
 
-  return maxNumber;
-}
+// array.indexOf - використовується для отримання першого входження певного значення у масиві
+// array.indexOf(searchElement, [fromIndex])
+// console.log(array4.indexOf(12));
 
-console.log(maxArray(numbersArray)); // 8
+
+// array.join - використовується для створення рядка, об'єднуючи всі елементи масиву
+// array.join([separator])
+const array5 = ['Hello', 'world', 4, 2, 'hi'];
+//console.log(array5.join(' <<--->> '));
+
+
+// array.push - використовується для додавання одного або кількох елементів у кінець
+// array.push(element1, ..., elementN);
+const array6 = [2, 3, 4, 5];
+array6.push(6, 7, 8, 9, 10);
+
+
+// array.pop - використовується для видалення останнього елементу
+array6.pop();
+array6.pop();
+array6.pop();
