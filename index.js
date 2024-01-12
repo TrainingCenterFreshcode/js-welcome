@@ -1,35 +1,22 @@
-const users = [
-  {
-    name: "John",
-    lastName: "Doe",
-    age: 19,
-    email: "john.doe@gmail.com",
-  },
-  {
-    name: "Jane",
-    lastName: "Doe",
-    age: 22,
-    email: "jane.doe@gmail.com",
-  },
-  {
-    name: "Jackson",
-    lastName: "Doe",
-    age: 55,
-    email: "jackson.doe@gmail.com",
-  },
-];
+/* Задача 2
 
-// Задача 1
-// збільшити вік користувачів на 1
+Дано масив:
 
+const array = [2, 44, 11, 234, 8, 2, 4, 1];
+
+Задача:
+Зробити новий масив, всі елементи якого = елемент зі старого масиву + 100
+
+*/
+
+const array = [2, 44, 11, 234, 8, 2, 4, 1];
 
 // variant 1
-function plusOneYear (item) {
-  item.age += 1;
+function plus100(item) {
+  return item + 100;
 }
-users.forEach(plusOneYear);
+
+const newArray = array.map(plus100);
 
 // variant 2
-// users.forEach((item) => item.age += 1);
-
-console.log(users);
+// const newArray = array.map((item) => item + 100);
