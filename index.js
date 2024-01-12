@@ -1,22 +1,48 @@
-/* Задача 2
+/*
 
-Дано масив:
+Задача 3
 
-const array = [2, 44, 11, 234, 8, 2, 4, 1];
-
-Задача:
-Зробити новий масив, всі елементи якого = елемент зі старого масиву + 100
+Створити новий масив користувачів, об'єкти мають бути у такому вигляді
+{
+  fullname: 'John Doe',
+  email: ....
+}
 
 */
 
-const array = [2, 44, 11, 234, 8, 2, 4, 1];
+const users = [{
+  name: 'John',
+  lastName: 'Doe',
+  age: 19,
+  email: 'john.doe@gmail.com'
+}, {
+  name: 'Jane',
+  lastName: 'Doe',
+  age: 22,
+  email: 'jane.doe@gmail.com'
+}, {
+  name: 'Jackson',
+  lastName: 'Doe',
+  age: 55,
+  email: 'jackson.doe@gmail.com'
+}]
 
-// variant 1
-function plus100(item) {
-  return item + 100;
-}
+// function newUserObject(user) {
+//   return {
+//     fullName: `${user.name} ${user.lastName}`,
+//     email: user.email,
+//     age: user.age + 1
+//   }
+// }
 
-const newArray = array.map(plus100);
+// const newUsers = users.map(newUserObject);
 
-// variant 2
-// const newArray = array.map((item) => item + 100);
+
+
+const newArrFromUsers = users.map((user) => {
+  const newUser = { 
+    fullName: `${user.name} ${user.lastName}`,
+    email: user.email
+  };
+  return newUser;
+});
