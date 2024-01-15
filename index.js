@@ -14,18 +14,50 @@
 // array.map - працює як forEach, тільки map буде повертати новий масив (не мутуючий)
 // array.sort - використовується для сортування елементів в масиві (мутуючий)
 // array.filter - використовується для створення нового масиву, який місти лише ті елементи, які задовільняють певній умові (не мутуючий)
-
 // array.reduce - використовується для обчислення якого ОДНОГО значення на основі всіх елементів масиву (не мутуючий)
-// reduce - зводить всі елементи масиву до якогось одного результуючого значення
-// array.reduce(callback, initialValue)
 
-const numbersArray = [2, 3, 1, 2, 34, 21];
+const dogArray = [{
+  nickname: 'Tuzik',
+  color: 'black',
+  weight: 3,
+  age: 2 
+}, {
+  nickname: 'Dolly',
+  color: 'white',
+  weight: 5,
+  age: 3
+}, {
+  nickname: 'Fagot',
+  color: 'black',
+  weight: 9,
+  age: 5
+}, {
+  nickname: 'Stus',
+  color: 'black',
+  weight: 15,
+  age: 1
+}]
 
-// Задача: знайти суму numbersArray
+// Задача: відсортувати собак за вагою на збільшення (у порядку зростання)
 
-function reducer(accumulator, item) {
-  // те, що повертає reducer - оновлений акумулятор
-  return accumulator + item;
-}
+// dogArray.sort((dog1, dog2) => {
+//   if(dog1.weight < dog2.weight) {
+//     // 5 (dog1), 9 (dog2)
+//     return -1;
+//   } else { // dog1.weight > dog2.weight
+//     // 9 (dog1), 5 (dog2)
+//     return 1;
+//   }
+// })
 
-const sum = numbersArray.reduce(reducer, 0); // 0 - початкове значення, з якого ми починаємо рахувати сумму
+/*
+-1 - dog1, dog2
+0 - всі на місці
+1 - dog2, dog1
+
+*/
+
+dogArray.sort((dog1, dog2) => {
+  // return dog1.weight - dog2.weight; // у порядку зростання
+  return dog2.weight - dog1.weight; // у порядку спадання
+});
