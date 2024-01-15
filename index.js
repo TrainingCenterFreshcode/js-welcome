@@ -16,97 +16,20 @@
 // array.filter - використовується для створення нового масиву, який місти лише ті елементи, які задовільняють певній умові (не мутуючий)
 // array.reduce - використовується для обчислення якого ОДНОГО значення на основі всіх елементів масиву (не мутуючий)
 
-const dogArray = [{
-  nickname: 'Tuzik',
-  color: 'black',
-  weight: 3,
-  age: 2 
-}, {
-  nickname: 'Dolly',
-  color: 'white',
-  weight: 5,
-  age: 3
-}, {
-  nickname: 'Fagot',
-  color: 'black',
-  weight: 9,
-  age: 5
-}, {
-  nickname: 'Stus',
-  color: 'black',
-  weight: 15,
-  age: 1
-}]
+function MyArray() {
+  this.length = 0;
 
-// Задача: відсортувати собак за вагою на збільшення (у порядку зростання)
-
-// dogArray.sort((dog1, dog2) => {
-//   if(dog1.weight < dog2.weight) {
-//     // 5 (dog1), 9 (dog2)
-//     return -1;
-//   } else { // dog1.weight > dog2.weight
-//     // 9 (dog1), 5 (dog2)
-//     return 1;
-//   }
-// })
-
-/*
--1 - dog1, dog2
-0 - всі на місці
-1 - dog2, dog1
-
-*/
-
-dogArray.sort((dog1, dog2) => {
-  // return dog1.weight - dog2.weight; // у порядку зростання
-  return dog2.weight - dog1.weight; // у порядку спадання
-});
-
-/*
-
-Задача 1
-
-Відсортувати собак від найстаршого до наймолодшого
-
-*/
-
-// variant 1
-// dogArray.sort((dog1, dog2) => {
-//   return dog2.age - dog1.age; // у порядку спадання
-// });
-
-// variant 2
-dogArray.sort((dog1, dog2) => {
-  if(dog1.age > dog2.age) {
-    // 1 (dog1), 4 (dog2)
-    return -1;
-  } else { // dog1.age < dog2.age
-    // 3 (dog1), 1 (dog2)
-    return 1;
+  this.push = function (value) {
+    // значення додати у КІНЕЦЬ масиву
+    this[this.length] = value;
+    this.length++;
+    return this.length;
   }
-})
+}
 
-/*
--1 - dog1, dog2
-0 - всі на місці
-1 - dog2, dog1
+const arr = new MyArray();
+arr.push(1);
+arr.push(2);
 
-*/
-
-/*
-
-Задача 2
-Відсіяти всіх собак окрім білих
-
-*/
-
-const whiteDogsArray = dogArray.filter((dog) => {
-  // variant 1
-  // if(dog.color === 'white') {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-
-  return dog.color === 'white';
-});
+// Перепишіть push таким чином, щоб push міг приймати та додавав до масиву будь-яку кількість переданих елементів
+// arr.push(3, 2, 5, 10, 12, 33);
