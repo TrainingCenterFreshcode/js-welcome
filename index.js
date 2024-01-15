@@ -61,3 +61,34 @@ dogArray.sort((dog1, dog2) => {
   // return dog1.weight - dog2.weight; // у порядку зростання
   return dog2.weight - dog1.weight; // у порядку спадання
 });
+
+/*
+
+Задача 1
+
+Відсортувати собак від найстаршого до наймолодшого
+
+*/
+
+// variant 1
+// dogArray.sort((dog1, dog2) => {
+//   return dog2.age - dog1.age; // у порядку спадання
+// });
+
+// variant 2
+dogArray.sort((dog1, dog2) => {
+  if(dog1.age > dog2.age) {
+    // 1 (dog1), 4 (dog2)
+    return -1;
+  } else { // dog1.age < dog2.age
+    // 3 (dog1), 1 (dog2)
+    return 1;
+  }
+})
+
+/*
+-1 - dog1, dog2
+0 - всі на місці
+1 - dog2, dog1
+
+*/
