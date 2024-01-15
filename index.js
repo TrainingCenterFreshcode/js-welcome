@@ -1,22 +1,14 @@
+/*
 
+Створити новий масив, кожен елемент якого = елемент зі старого масиву * 2
 
-//console.log(t);
-//console.dir(t);
+*/
 
-// Будь яка JS функція - об'єкт
+const oldArray = [2, 3, 4, 5, 1, 2];
 
-// Задача: написати функцію, яка повертає суму БУДЬ-ЯКОЇ кількості переданих в неї аргументів
+const newStr = oldArray.map((item) => {
+  return item * 2;
+}).reverse().join(','); // chaining (map -> reverse -> join)
 
-function sum() {
-  const arrayArgs = Array.from(arguments);
-
-  let sum = 0;
-
-  for(let i = 0; i < arrayArgs.length; i++) {
-    sum += arrayArgs[i];
-  }
-
-  return sum;
-}
-
-console.log(sum(2, 2, 2, 2, 2, 100));
+// Потрібно взяти і змінити порядок слідування елементів в масиві newArray на протилежний
+// Потрібно зробити з масива - рядочок, розділений комами
