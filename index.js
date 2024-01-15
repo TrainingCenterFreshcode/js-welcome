@@ -15,19 +15,17 @@
 // array.sort - використовується для сортування елементів в масиві (мутуючий)
 // array.filter - використовується для створення нового масиву, який місти лише ті елементи, які задовільняють певній умові (не мутуючий)
 
-/*
+// array.reduce - використовується для обчислення якого ОДНОГО значення на основі всіх елементів масиву (не мутуючий)
+// reduce - зводить всі елементи масиву до якогось одного результуючого значення
+// array.reduce(callback, initialValue)
 
-const numbersArray = [5, 3, -9, 21, -5, 1, -2, 4];
-Створити новий масив, в який увійдуть тільки парні елементи початкового масива
+const numbersArray = [2, 3, 1, 2, 34, 21];
 
-*/
+// Задача: знайти суму numbersArray
 
-function filterFunction(item) {
-  // if(item % 2 === 0) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-  
-  return item % 2 === 0
+function reducer(accumulator, item) {
+  // те, що повертає reducer - оновлений акумулятор
+  return accumulator + item;
 }
+
+const sum = numbersArray.reduce(reducer, 0); // 0 - початкове значення, з якого ми починаємо рахувати сумму
