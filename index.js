@@ -75,10 +75,10 @@ const cat2 = {
 
 const catMethods = { // прототип
   run: function() {
-    console.log('Cat is running');
+    console.log(`${this.name} is running!`);
   },
   meow: function() {
-    console.log('Meow!');
+    console.log(`${this.name} said meow!`);
   }
 }
 
