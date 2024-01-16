@@ -19,7 +19,7 @@
 function MyArray() {
   this.length = 0;
 
-  this.push = function (value) {
+  this.push = function () {
     for(let i = 0; i < arguments.length; i++) {
       this[this.length] = arguments[i];
       this.length++;
@@ -43,13 +43,19 @@ function MyArray() {
   }
 
   this.forEach = function(callback) {
-    // ?
+    for(let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
   }
 }
 
 const arr = new MyArray();
 arr.push(1);
 arr.push(2);
+arr.push(3, 2, 5);
 
-// Перепишіть push таким чином, щоб push міг приймати та додавав до масиву будь-яку кількість переданих елементів
-arr.push(3, 2, 5, 10, 12, 33);
+// Відконсольлогувати квадрати кожного числа в масиві arr
+
+arr.forEach((item) => {
+  console.log(item ** 2);
+});
