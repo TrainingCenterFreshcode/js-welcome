@@ -1,52 +1,51 @@
 'use strict';
 
-// Задача:
-/*
-У функції sum знайди суму двох елементів, а усі інші аргументи, які передали у функцію ззовні, при виклику
-- покласти у масив
-*/
-
 // rest operator - оператор залишкових параметрів
 // rest - залишок (з англ.)
 // .., .., .., .., -->> []
 
-function sum(a, b, ...arrayOfRestArguments) {
-  console.log(arrayOfRestArguments);
-  return a + b;
-}
+const arrowSum = (...restArrayOfNumbers) => {
+  let sum = 0;
 
-console.log(sum(1, 2, 3, 5, 10, 25)); // 3
-
-// function f(arg1, ...rest, arg2) { // помилка
-
-// }
-
-// Задача: написати стрілочну функцію, яка сумує будь-яку кількість чисел
-
-// const arrowSum = (...restArrayOfNumbers) => {
-//   let sum = 0;
-
-//   for(let i = 0; i < restArrayOfNumbers.length; i++) {
-//     sum += restArrayOfNumbers[i];
-//   }
-
-//   return sum;
-// }
-
-/* Задача
-
-Напишіть варіант функції arrowSum з використанням метода reduce
-При виклику reduce передайте йому стрілковий колбек =)
-
-*/
-
-const arrowSum = (...restArray) => { // variant 1
-  const sum = restArray.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  }, 0);
+  for(let i = 0; i < restArrayOfNumbers.length; i++) {
+    sum += restArrayOfNumbers[i];
+  }
 
   return sum;
 }
 
-// variant 2
-// const arrowSum = (...restArray) => restArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// spread operator
+// spread - розпакувати (з англ.)
+// [] -->> .., .., .., ..,
+
+const numbers = [1, 2, 3, 4, 5];
+
+function sum (a, b, ...restArray) {
+  console.log(restArray);
+  return a + b;
+}
+
+// console.log(sum(numbers[0], numbers[1], numbers[2], numbers[3], numbers[4]));
+console.log(sum(...numbers)); // spread operator
+// розпакували всі значення масиву numbers в виклик функції sum
+
+// Як розрізняти rest і spread оператор (...)?
+
+// Якщо оператор стоїть у аргументах функції, то це rest - він просто бере і збирає всі залишки параметрів
+// Якщо ми використовуємо оператор на масиві, то це spread - він бере і розбиває масив на купу елементів
+
+
+
+
+
+// Приклад використання spread оператора № 1
+
+const numbersMath = [2, 3, 1, 5, 4];
+
+Math.min(...numbersMath); // 1
+
+// Приклад використання spread оператора № 2
+
+// Задача: зробити масив з назвою copyArray в який будуть входити всі елементи з масиву numbersMath
+
+const copyArray = [...numbersMath];
