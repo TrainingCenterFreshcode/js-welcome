@@ -1,20 +1,44 @@
-/*
 
-Написати функцію, яка приймає рядок і робить кожну першу літеру кожного слова з великої літери
+/* Задача 1
+
+Написати функцію checkSpam, яка повертає true, якщо переданий рядок містить слова 'xxx' або 'viagra'
+Якщо заборонених слів у рядку немає - повертається false
+
+checkSpam('buy ViAgRa now'); // true
+checkSpam('free xxxxxxx'); // true
+checkSpam('innocent rabbit'); // false
 
 */
 
-function capitalizeWords(str) {
-  // Розбиваємо рядок на окремі слова
-  let words = str.split(' ');
+// function checkSpam(str) { // variant 1
+//   const lowStr = str.toLowerCase();
+//   return lowStr.includes('viagra') || lowStr.includes('xxx');
+// }
 
-  // Проходимо по кожному слову і робимо першу літеру великою
-  for(let i = 0; i < words.length; i++) {
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+function checkSpam(str) { // variant 2
+  const spamArray = ['viagra', 'xxx', 'drugs'];
+
+  for(let i = 0; i < spamArray.length; i++) {
+    if(str.toLowerCase().includes(spamArray[i])) {
+      return true;
+    }
   }
 
-  // Повертаємо з'єднаний рядок зі словами, розділеними пробілами
-  return words.join(' ');
+  return false;
 }
 
-console.log(capitalizeWords('word flower third'));
+console.log(checkSpam('buy ViAgRa now'));
+console.log(checkSpam('free xxxxxxx'));
+console.log(checkSpam('innocent rabbit'));
+
+/* Задача 2
+
+Написати функцію, яка перевіряє, чи є переданий їй рядок - паліндромом. не зважаючи на регістр
+Паліндром - це коли рядок з обох сторін читається однаково
+
+Anna - паліндром
+Mama - не паліндром
+Namman - паліндром
+
+*/
+
