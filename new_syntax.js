@@ -49,11 +49,15 @@ const user2 = new User('Dari', 'Dane', 23);
 
 */
 
+const MIN_ZP = 7101;
+const WORK_DAYS = 21;
+const MIN_RATE = MIN_ZP / WORK_DAYS;
+
 class Worker {
-    constructor(name, lastName, rate, days) {
+    constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS) {
         this.name = name;
         this.lastName = lastName;
-        this.rate = rate;
+        this.rate = Number(rate.toFixed(2));
         this.days = days;
     }
 
@@ -63,3 +67,15 @@ class Worker {
 }
 
 const worker1 = new Worker('John', 'Doe', 300, 21);
+const worker2 = new Worker('Savanna', 'Loe');
+
+
+/* Параметри за замовченням */
+
+function sum(a = 10, b = 5) {
+    return a + b;
+}
+
+console.log(sum()); // 15 (10 + 5)
+console.log(sum(3)); // 8 (3 + 5)
+console.log(sum(5, 5)); // 10 (5 + 5)
