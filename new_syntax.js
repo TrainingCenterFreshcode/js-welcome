@@ -55,18 +55,52 @@ const MIN_RATE = MIN_ZP / WORK_DAYS;
 
 class Worker {
     constructor(name, lastName, rate = MIN_RATE, days = WORK_DAYS, coefficient) {
+        if(name === '' || lastName === '') {
+            throw new Error('Name and lastName must be a valid');
+        }
+
         this.name = name;
         this.lastName = lastName;
-        this.rate = Number(rate.toFixed(2));
+        
+        if(typeof rate !== 'number' || typeof days !== 'number') {
+            throw new TypeError('Rate and days must be a number');
+        }
+
+        if(rate < 0) {
+            throw new RangeError('Rate must be a posistive number');
+        }
+
+        this._rate = Number(rate.toFixed(2));
+
+        if(days < 0 || days > 31) {
+            throw new RangeError('Days must be in 0 to 31');
+        }
+
         this.days = days;
         this.coefficient = coefficient;
     }
 
+    getRate() {
+        return this._rate;
+    }
+
+    setRate(value) {
+        if(typeof value !== 'number') {
+            throw new TypeError('Rate must be a number');
+        }
+
+        if(value < 0) {
+            throw new RangeError('Rate must be a posistive number');
+        }
+
+        this._rate = value;
+    }
+
     getSalary() {
-        if(coefficient) {
-            return this.rate * this.days * coefficient;
+        if(this.coefficient) {
+            return this._rate * this.days * this.coefficient;
         } else {
-            return this.rate * this.days;
+            return this._rate * this.days;
         }
     }
 }
