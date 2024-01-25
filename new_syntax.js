@@ -8,11 +8,6 @@ class Worker {
         this.name = name;
         this.lastName = lastName;
         this.rate = Number(rate.toFixed(2));
-
-        if(days < 0 || days > 31) {
-            throw new RangeError('Days must be in 0 to 31');
-        }
-
         this.days = days;
         this.coefficient = coefficient;
     }
@@ -69,6 +64,30 @@ class Worker {
 
     get lastName() {
         return this._lastName;
+    }
+
+    set days(newValue) {
+        if(newValue < 0 || newValue > 31) {
+            throw new RangeError('Days must be in 0 to 31');
+        }
+
+        this._days = newValue;
+    }
+
+    get days() {
+        return this._days;
+    }
+
+    set coefficient(newValue) {
+        if(newValue < 0) {
+            throw new RangeError('coefficient must be > 0');
+        }
+
+        this._coefficient = newValue;
+    }
+
+    get coefficient() {
+        return this._coefficient;
     }
 
     getSalary() {
