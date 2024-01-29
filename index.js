@@ -151,6 +151,42 @@ class Student extends Person {
         // варіант 3
         return this.averageGrade >= 90;
     }
+
+    static calculateAverageGrade(studentsArray) {
+        if(studentsArray.length === 0) {
+            return 0;
+        }
+
+        // перевірка на те, чи об'єкт всередині масиву studentsArray є екзмемпляром класу Student
+        
+        /* варіант 1
+        let sum = 0;
+
+        for(let i = 0; i < studentsArray.length; i++) {
+            sum += studentsArray[i].averageGrade;
+        }
+
+        return sum / studentsArray.length;
+        */
+
+        /* варіант 2
+        let sum = 0;
+
+        studentsArray.forEach((student) => {
+            sum += student.averageGrade;
+        });
+
+        return sum / studentsArray.length;
+        */
+
+        /* варіант 3
+        const sum = studentsArray.reduce((accumulator, student) => accumulator + student.averageGrade, 0);
+
+        return sum / studentsArray.length;
+        */
+
+        return studentsArray.reduce((accumulator, student) => accumulator + student.averageGrade, 0) / studentsArray.length;
+    }
 }
 
 /*
@@ -164,7 +200,7 @@ class Student extends Person {
 const ivanov = new Person('Іванов Іван Іванович', 1985, 'male');
 const petrov = new Person('Петров Петр Петрович', 1985, 'Non binary');
 
-console.log(ivanov.greeting());
+// console.log(ivanov.greeting());
 
 const student1 = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12-F-345', 95);
 const student2 = new Student('John Doe', 1999, 'male', 2021, 'A12-F-346', 85);
@@ -181,3 +217,5 @@ const students = [student1, student2, student3, student4];
 Цей метод приймає масив єкземплярів класу Students (174 строчка) обчислює і повертає як результат роботи середній бал всіх студентів з масиву
 
 */
+
+console.log(Student.calculateAverageGrade(students));
