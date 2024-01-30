@@ -1,36 +1,23 @@
-class MyArray {
-  constructor() {
-    this.length = 0;
-  }
+/*
 
-  push() {
-    for (let i = 0; i < arguments.length; i++) {
-      this[this.length] = arguments[i];
-      this.length++;
-    }
-    return this.length;
-  }
+Symbol - представляє собою унікальний ідентифікатор.
+Кожен створений символ має свій власний унікальний ідентифікатор, який ніде і ніколи не буде повторюватись
 
-  pop() {
-    if (this.length > 0) {
-      // 1. Зберегти останній елемент
-      const lastItem = this[this.length - 1];
-      // 2. Видалити останній елемент з масиву
-      delete this[this.length - 1];
-      // 3. Зменшити довжину масиву на 1
-      this.length--;
-      // 4. Повернути останній елемент
-      return lastItem;
-    } else {
-      return undefined;
-    }
-  }
+Особливість символів - вони завжди унікальні
+Кожен створений символ, матиме унікальний ідентифікатор, який ніде і ніколи не буде повторюватись
 
-  forEach(callback) {
-    for (let i = 0; i < this.length; i++) {
-      callback(this[i], i, this);
-    }
-  }
+Гарантія унікальності - єдине, для чого Symbol і існує
+
+*/
+
+const mySymbol = Symbol(); // без new!!
+
+// const symb2 = Symbol('My second symbol'); // label for human
+
+const obj = {
+  // У об'єктах ключами можуть бути рядки або символи
+  'test': 1,
+  [mySymbol]: 123
 }
 
-const arr = new MyArray();
+console.log(obj[mySymbol]); // 123
