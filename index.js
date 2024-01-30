@@ -1,67 +1,36 @@
-/*
+class MyArray {
+  constructor() {
+    this.length = 0;
+  }
 
-Фабричний метод - спосіб створювати об'єкти, який дозволяє нам не вказувати конкретний клас об'єкта.
-Використовуємо спеціальну "фабрику" для створення об'єктів.
-Фабрика знає, який саме об'єкт потрібно створити і повертає його нам.
-
-new Student(); // НЕ РОБИМО!
-
-Звертаємось до фабрики, фабриці повідомляємо, що нам потрібно, фабрика уже буде робити нам екземпляри потрібного класу (new Student())
-
-
-*/
-
-// Абстрактний клас або інтерфейс
-class Animal {
-    constructor(nickname) {
-        this.nickname = nickname;
+  push() {
+    for (let i = 0; i < arguments.length; i++) {
+      this[this.length] = arguments[i];
+      this.length++;
     }
+    return this.length;
+  }
 
-    makeSound() { // абстрактний метод
-
+  pop() {
+    if (this.length > 0) {
+      // 1. Зберегти останній елемент
+      const lastItem = this[this.length - 1];
+      // 2. Видалити останній елемент з масиву
+      delete this[this.length - 1];
+      // 3. Зменшити довжину масиву на 1
+      this.length--;
+      // 4. Повернути останній елемент
+      return lastItem;
+    } else {
+      return undefined;
     }
+  }
+
+  forEach(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
+  }
 }
 
-// Конкретний клас для собаки
-class Dog extends Animal {
-    constructor(nickname) {
-        super(nickname);
-    }
-
-    makeSound() { // віртуальний метод
-        console.log('Гав-гав');
-    }
-}
-
-// Конкретний клас для кота
-class Cat extends Animal {
-    constructor(nickname) {
-        super(nickname);
-    }
-
-    makeSound() { // Віртуальний метод
-        console.log('Мяу-мяу');
-    }
-}
-
-// Фабричний клас, який створює об'єкти
-class AnimalFactory {
-    static createAnimal(type, nickname) {
-        switch(type) {
-            case 'dog': return new Dog(nickname);
-            case 'cat': return new Cat(nickname);
-            default: throw new Error(`Невідомий тип тварини: ${type}`);
-        }
-    }
-}
-
-
-// Використання фабрики для створення об'єктів
-
-// Створити об'єкт собаки
-const dog = AnimalFactory.createAnimal('dog', 'Tuzik');
-dog.makeSound(); // Гав-гав
-
-// Створити об'єкт кота
-const cat = AnimalFactory.createAnimal('cat', 'Murzik');
-cat.makeSound(); // Мяу-мяу
+const arr = new MyArray();

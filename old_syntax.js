@@ -1,19 +1,43 @@
-function User(name, lastName, age) {
-  this.name = name;
-  this.lastName = lastName;
-  this.age = age;
-}
+function MyArray() {
+  this.length = 0;
 
-function UserPrototype() {
-  this.getFullName = function () {
-    return `${this.name} ${this.lastName}`;
+  this.push = function () {
+    for (let i = 0; i < arguments.length; i++) {
+      this[this.length] = arguments[i];
+      this.length++;
+    }
+    return this.length;
+  };
+
+  this.pop = function () {
+    if (this.length > 0) {
+      // 1. Зберегти останній елемент
+      const lastItem = this[this.length - 1];
+      // 2. Видалити останній елемент з масиву
+      delete this[this.length - 1];
+      // 3. Зменшити довжину масиву на 1
+      this.length--;
+      // 4. Повернути останній елемент
+      return lastItem;
+    } else {
+      return undefined;
+    }
+  };
+
+  this.forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
   };
 }
 
-User.prototype = new UserPrototype();
+const arr = new MyArray();
+arr.push(1);
+arr.push(2);
+arr.push(3, 2, 5);
 
-// __proto__ - працює з об'єктами які створюються літерально
-// .prototype - працює з конструкторами
+// Відконсольлогувати квадрати кожного числа в масиві arr
 
-const user1 = new User("John", "Doe", 56);
-const user2 = new User("Jane", "Freeman", 44);
+arr.forEach((item) => {
+  console.log(item ** 2);
+});
