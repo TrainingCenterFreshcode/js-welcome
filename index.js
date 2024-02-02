@@ -1,68 +1,39 @@
-// LIFO
-
-// Last in - first out
-
-
-// stack overflow - помилка, яка виникає при переповненні стеку
+// Queue
 
 /*
 
-push - вставляємо елемент на вершину стеку
-pop - видалення елементу з вершини стеку і повернення видаленого елементу
-isEmpty - повертає true, якщо стек пустий // false - якщо стек не пустий
-pick - повертає останній елемент, але нічого не робить із ним і не видаляє зі стеку
+1. Enqueue - вставляє елемент в кінець черги
+2. Dequeue - видаляє елемент з початку черги
 
 */
 
-class Stack {
-  constructor(maxSize) {
-    this._maxSize = maxSize;
-    this._size = 0;
-  }
-
-  get isEmpty() {
-    return this._size === 0;
+class Queue {
+  constructor() {
+    this._head = 0;
+    this._tail = 0;
   }
 
   get size() {
-    return this._size;
+    return this._tail - this._head;
   }
 
-  get maxSize() {
-    return this._maxSize;
-  }
-
-  set size(newValue) {
-    throw new Error('Access denied');
-  }
-
-  set maxSize(newValue) {
-    throw new Error('Access denied');
-  }
-
-  push(value) {
-    if(this.size >= this.maxSize) {
-      throw new Error('Stack overflow');
-    }
-    this[`_${this.size}`] = value;
-    this._size++;
-
+  enqueue(value) {
+    // tail відповідає на питання, який елемент має бути останнім
+    this[this._tail] = value;
+    this._tail++;
     return this.size;
   }
 
-  pop() {
+  dequeue() {
     if(this.size > 0) {
-      const lastItem = this[`_${this.size - 1}`];
-      delete this[`_${this.size - 1}`];
-      this._size--;
-
-      return lastItem;
+      const firstItem = this[this._head];
+      delete this[this._head];
+      this._head++;
+      return firstItem;
+    } else {
+      return undefined;
     }
-  }
-
-  pick() {
-    return this[`_${this.size - 1}`];
   }
 }
 
-const myStack = new Stack(4);
+const queue = new Queue();
