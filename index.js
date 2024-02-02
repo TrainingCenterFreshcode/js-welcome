@@ -1,44 +1,20 @@
-/* Map (Карта, Мапа, Словник)
 
-Зберігає пари "ключ: значення"
-Має розмір (size)
+// Задача: зберегти розклад занять, використовуючи дні тижня як ключі, а значеннями будуть списки занять, які відбуваються у відповідний день
 
-Відмінності від звичайного об'єкта:
-1. Запам'ятовує елементи в тому ж порядку, в якому ми їх додаємо
-2. Ключем може бути будь-який тип даних: String, Number, Boolean, BigInt, Object -> Function
-(Об'єкти (в тому числі функції) - передаються за посиланнями
+const schedule = new Map();
 
+// Додавання занять до розкладу
+schedule.set('Понеділок', ['Математика', 'Фізика']);
+schedule.set('Вівторок', ['Англійська мова', 'Всесвітня історія']);
+schedule.set('Середа', ['Хімія', 'Географія']);
+schedule.set('Четвер', ['Зарубіжна література', 'Біологія']);
+schedule.set('П\`ятниця', ['Інформатика', 'Фізкультура']);
 
+// Отримання розкладу занять для певного дня
+console.log(schedule.get('Понеділок'));
 
-Ключ в Map має бути унікальним
+// Перевірка, чи є розклад для певного дня
+console.log(schedule.has('Субота'));
 
-
-*/
-
-
-
-const vocalbuary = new Map();
-
-vocalbuary.set('cat', 'кіт');
-vocalbuary.set('dog', 'собака');
-vocalbuary.set('eat', 'їсти');
-
-// Написати функцію, яка приймає строку англійською мовою і перекладає цю строку українською, використовуючи словник
-
-function translater(str, vocalbuary) {
-  const arrayWords = str.toLowerCase().trim().split(' ');
-  
-  // у нас є словник vocalbuary
-  // перебрати arrayWords і переклад для кожного англійського слова у масиві дістати з нашого словника
-  const translatedArray = arrayWords.map((word) => {
-    if(vocalbuary.has(word)) {
-      return vocalbuary.get(word);
-    } else {
-      return word;
-    }
-  });
-
-  return translatedArray.join(' ');
-}
-
-console.log(translater('    Cat eat dog    ', vocalbuary));
+// Отримання кількості днів занять в розкладі
+console.log(schedule.size);
