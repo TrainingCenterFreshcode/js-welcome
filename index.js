@@ -1,39 +1,44 @@
-// Queue
+/* Map (Карта, Мапа, Словник)
 
-/*
+Зберігає пари "ключ: значення"
+Має розмір (size)
 
-1. Enqueue - вставляє елемент в кінець черги
-2. Dequeue - видаляє елемент з початку черги
+Відмінності від звичайного об'єкта:
+1. Запам'ятовує елементи в тому ж порядку, в якому ми їх додаємо
+2. Ключем може бути будь-який тип даних: String, Number, Boolean, BigInt, Object -> Function
+(Об'єкти (в тому числі функції) - передаються за посиланнями
+
+
+
+Ключ в Map має бути унікальним
+
 
 */
 
-class Queue {
-  constructor() {
-    this._head = 0;
-    this._tail = 0;
-  }
 
-  get size() {
-    return this._tail - this._head;
-  }
 
-  enqueue(value) {
-    // tail відповідає на питання, який елемент має бути останнім
-    this[this._tail] = value;
-    this._tail++;
-    return this.size;
-  }
+const vocalbuary = new Map();
 
-  dequeue() {
-    if(this.size > 0) {
-      const firstItem = this[this._head];
-      delete this[this._head];
-      this._head++;
-      return firstItem;
+vocalbuary.set('cat', 'кіт');
+vocalbuary.set('dog', 'собака');
+vocalbuary.set('eat', 'їсти');
+
+// Написати функцію, яка приймає строку англійською мовою і перекладає цю строку українською, використовуючи словник
+
+function translater(str, vocalbuary) {
+  const arrayWords = str.toLowerCase().trim().split(' ');
+  
+  // у нас є словник vocalbuary
+  // перебрати arrayWords і переклад для кожного англійського слова у масиві дістати з нашого словника
+  const translatedArray = arrayWords.map((word) => {
+    if(vocalbuary.has(word)) {
+      return vocalbuary.get(word);
     } else {
-      return undefined;
+      return word;
     }
-  }
+  });
+
+  return translatedArray.join(' ');
 }
 
-const queue = new Queue();
+console.log(translater('    Cat eat dog    ', vocalbuary));
