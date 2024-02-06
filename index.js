@@ -1,22 +1,41 @@
-/* Задача 2
+const monitor = {
+    sizes: {
+        height: {
+            value: 30,
+            scale: 'cm // 1'
+        },
+        width: {
+            value: 50,
+            scale: 'cm // 2'
+        }
+    },
+    brightness: 750,
+    refresh: {
+        value: 144,
+        scale: 'Ggrc'
+    },
+    color: 'black',
+    resolution: '4K'
+}
 
-Дано два масиви:
+// const height = monitor.sizes.height.value;
 
-const arr1 = [4, 3, 7, 5, -11];
-const arr2 = [3, 4, 8, 7, 2, -11];
+// const {resolution, color: monitorColor} = monitor;
 
-Повернути з функції масив, що складається з різниці двох масивів (тобто, тих значень, які не повторюються в обох масивах)
+// console.log(resolution);
+// console.log(monitorColor);
 
-// Логіка:
-Ви приймаєте 2 масиви
-Вам потрібно зробити новий масив, але там не повинно бути дублювань
+// Задача: витягнути value для висоти та ширини монітору
 
+// const {sizes: {height: {value: heightValue}, width: {value: widthValue}}, brightness, refresh: {value: refreshValue}} = monitor;
 
-*/
+// console.log(heightValue);
+// console.log(widthValue);
+// console.log(refreshValue);
 
-const arr1 = [4, 3, 7, 5, -11];
-const arr2 = [3, 4, 8, 7, 2, -11];
+const {sizes: {height: {scale: heightScale}, width: {scale: widthScale}}} = monitor;
 
-const twoArraysWithoutDoubles = (array1, array2) => [...new Set([...array1, ...array2])];
+console.log(heightScale);
+console.log(widthScale);
 
-const arrayWithoutDoubles = twoArraysWithoutDoubles(arr1, arr2);
+const {color, brightness, resolution, ...restOfMonitor} = monitor;
